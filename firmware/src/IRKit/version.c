@@ -14,19 +14,4 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <avr/pgmspace.h>
-
-// largest used in our program
-#define PROGMEM_CACHE_SIZE 48
-
-// rule
-// index 0 is for directly using Serial.println(P("hoge"))
-// index 1,.. is for passing char* into next function
-
-// choose different index to use simultaneously
-char to_print[2][PROGMEM_CACHE_SIZE];
-
-char *pgmStrToRAM(const PROGMEM char *theString, uint8_t index) {
-    strcpy_P( to_print[ index ], theString );
-    return to_print[index];
-}
+const char version[] = "3.0.0.0.g85190b1";
